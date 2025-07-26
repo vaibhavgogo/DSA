@@ -46,6 +46,7 @@ public:
         }
 
     }
+ 
     void print()
     {
         for (int i = 1; i <= size; i++)
@@ -55,7 +56,23 @@ public:
         cout << endl;
     }
 };
-
+   void heapify(int arr[],int n,int i){
+        
+        int left=2*i;
+        int right=(2*i)+1;
+        int large=i;
+        if(left<n&&arr[left]>arr[large]){
+large=left;
+        }
+        if(right<n&&arr[right]>arr[large]){
+large=right;
+        }
+        if(large!=i){
+            swap(arr[large],arr[i]);
+            heapify(arr,n,large);
+        }
+        
+    }
 int main()
 {
     heap h;
@@ -67,6 +84,13 @@ int main()
     h.insert(91);
  
     h.deleteHeap();
+    int a[]={-1,2,23,34,1,67,34,65};
+    int n=7;
+    for(int i=n/2;i>0;i--)
+    heapify(a,n,i);
+      for(int i=1;i<=n;i++){
+        cout<<a[i]<<" ";
+    }
     h.print();
     return 0;
 }
