@@ -25,6 +25,27 @@ public:
             }
         }
     }
+    void deleteHeap(){
+        if(size==0)
+        return;
+        arr[1]=arr[size];
+        size--;
+        index=1;
+        while(index<size){
+            int left=(index*2);
+            int right=(index*2)+1;
+            if(left<size&&arr[left]>arr[index]&&arr[left]>arr[right]){
+                swap(arr[left],arr[index]);
+            }
+           else if(right<size&&arr[right]>arr[index]&&arr[left]<arr[right]){
+                swap(arr[right],arr[index]);
+            }
+            else {
+                return;
+            }
+        }
+
+    }
     void print()
     {
         for (int i = 1; i <= size; i++)
@@ -44,6 +65,8 @@ int main()
     h.insert(112);
     h.insert(121);
     h.insert(91);
+ 
+    h.deleteHeap();
     h.print();
     return 0;
 }
