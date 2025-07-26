@@ -30,7 +30,7 @@ public:
         return;
         arr[1]=arr[size];
         size--;
-        index=1;
+        int index=1;
         while(index<size){
             int left=(index*2);
             int right=(index*2)+1;
