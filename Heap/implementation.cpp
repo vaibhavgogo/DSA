@@ -61,10 +61,10 @@ public:
         int left=2*i;
         int right=(2*i)+1;
         int large=i;
-        if(left<n&&arr[left]>arr[large]){
+        if(left<=n&&arr[left]>arr[large]){
 large=left;
         }
-        if(right<n&&arr[right]>arr[large]){
+        if(right<=n&&arr[right]>arr[large]){
 large=right;
         }
         if(large!=i){
